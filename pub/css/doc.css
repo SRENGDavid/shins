@@ -1,5 +1,6 @@
 body{
-    font-family:cursive;
+    font-family:sans-serif;
+    color: #2D3748;
 }
 
 #top{
@@ -42,7 +43,7 @@ body{
     padding:20px;
     margin:10px 0px;
     background-color:#304e7f;
-    color:white;
+    color: white;
     font-weight:bold;
     font-size:20px;
 }
