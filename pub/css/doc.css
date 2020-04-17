@@ -1,0 +1,57 @@
+body{
+    font-family:cursive;
+}
+
+#top{
+    background-color:#304e7f;
+}
+
+#logo{
+    width:230px;
+}
+
+#description{
+    font-size:18px;
+}
+
+#main-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+}
+
+#description, #main-container{
+    width:60%;
+    min-width: 700px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.rateaux-container{
+    flex:1;
+    padding:20px;
+}
+
+.rateaux-header{
+    font-size:30px;
+    font-weight:bold;
+    margin:40px 5px;
+}
+
+.rateau{
+    padding:20px;
+    margin:10px 0px;
+    background-color:#304e7f;
+    color:white;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.rateaux-header, .rateau{
+    text-align:center;
+}
+
+.rateau:hover{
+    cursor:pointer;
+    transform: translateY(-3px);
+}
