@@ -1,40 +1,3618 @@
-<!DOCTYPE html>
-<html>
+
+
+
+<!doctype html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="pub/css/doc.css">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Electre API v1.0.0</title>
+
+    <style>
+    </style>
+    <link rel="stylesheet" media="screen" href="pub/css/screen.css">
+    <link rel="stylesheet" media="screen" href="pub/css/screen_overrides.css">
+    <link rel="stylesheet" media="print" href="pub/css/print.css">
+    <link rel="stylesheet" media="print" href="pub/css/print_overrides.css">
+    <link rel="stylesheet" media="screen" href="pub/css/darkula.css">
+    <link rel="stylesheet" media="screen" href="pub/css/theme_overrides.css">
+    
+      <script src="source/javascripts/lib/_jquery.js"></script>
+<script src="source/javascripts/lib/_jquery.highlight.js"></script>
+<script src="source/javascripts/lib/_lunr.js"></script>
+<script src="source/javascripts/lib/_imagesloaded.min.js"></script>
+<script src="source/javascripts/lib/_energize.js"></script>
+<script src="source/javascripts/app/_lang.js"></script>
+<script src="source/javascripts/app/_search.js"></script>
+<script src="source/javascripts/app/_toc.js"></script>
+<script type="text/javascript">
+$(function() {
+  loadToc($('#toc'), '.toc-link', '.toc-list-h2, .toc-list-h3, .toc-list-h4, .toc-list-h5, .toc-list-h6', 10);
+  setupLanguages($('body').data('languages'));
+  $('.content').imagesLoaded( function() {
+    recacheHeights();
+    refreshToc();
+  });
+});
+
+window.onpopstate = function() {
+  activateLanguage(getLanguageFromQueryString());
+};
+</script>
+
+    
+    <meta name="theme-color" content="#F3F7F9" />
+<!-- Renderer: Shins v2.4.1-0 -->
+<!-- Generator: Widdershins v3.6.6 -->
   </head>
 
-  <body>
-    <div id="top">
-      <img id="logo" src="source/images/logo.png" alt="logo">
-    </div>
-
-    <div id="description">
-      <h1> Documentation de l'API </h1>
-      L'API d'électre permet de récupérer les notices bibliographiques.
-      Les informations contenues dans celles-ci dépendent de l'abonnement choisi.
-      Voici la documentation de l'API suivant le type d'abonnement.
-    </div>
-
-    <div id="main-container">
-      <div id="rateaux-web-container" class="rateaux-container">
-        <div class="rateaux-header">Râteaux Web</div>
-        <div class="rateau" onclick="location.href='00.html';">Râteau 00</div>
-        <div class="rateau" onclick="location.href='01.html';">Râteau 01</div>
-        <div class="rateau" onclick="location.href='02.html';">Râteau 02</div>
-        <div class="rateau" onclick="location.href='03.html';">Râteau 03</div>
-        <div class="rateau" onclick="location.href='04.html';">Râteau 04</div>
-        <div class="rateau" onclick="location.href='05.html';">Râteau 05</div>
-        <div class="rateau" onclick="location.href='06.html';">Râteau 06</div>
-        <div class="rateau" onclick="location.href='07.html';">Râteau 07</div>
+  <body data-languages="[&quot;shell&quot;,&quot;http&quot;,&quot;javascript&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;php&quot;,&quot;java&quot;,&quot;go&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="source/images/navbar.png" class="undefined" alt="Navigation">
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="source/images/logo.png" class="logo" alt="Logo">
+      
+        <div class="lang-selector">
+          
+            
+              <a href="#" data-language-name="shell">Shell</a>
+            
+          
+            
+              <a href="#" data-language-name="http">HTTP</a>
+            
+          
+            
+              <a href="#" data-language-name="javascript">JavaScript</a>
+            
+          
+            
+              <a href="#" data-language-name="ruby">Ruby</a>
+            
+          
+            
+              <a href="#" data-language-name="python">Python</a>
+            
+          
+            
+              <a href="#" data-language-name="php">PHP</a>
+            
+          
+            
+              <a href="#" data-language-name="java">Java</a>
+            
+          
+            
+              <a href="#" data-language-name="go">Go</a>
+            
+          
+        </div>
+      
+      
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      
+      <div id="toc" class="toc-list-h1">
+	  	<ul class="toc-list-h1">
+        
+          <li>
+            <a href="#electre-api" class="toc-h1 toc-link" data-title="Electre API v1.0.0">Electre API v1.0.0</a>
+            
+          </li>
+        
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+            
+          </li>
+        
+          <li>
+            <a href="#electre-api-notices" class="toc-h1 toc-link" data-title="Notices">Notices</a>
+            
+              <ul class="toc-list-h2">
+                
+                  <li>
+                    <a href="#get-_notices" class="toc-h2 toc-link" data-title="">GET _notices</a>
+                    
+                  </li>
+                
+                  <li>
+                    <a href="#get-notices_updated" class="toc-h2 toc-link" data-title="">GET notices_updated</a>
+                    
+                  </li>
+                
+              </ul>
+            
+          </li>
+        
+		</ul>
       </div>
-      <div id="rateaux-gestion-container" class="rateaux-container">
-        <div class="rateaux-header">Râteaux Gestion</div>
-        <div class="rateau" onclick="location.href='A.html';">Râteau A</div>
-        <div class="rateau" onclick="location.href='B.html';">Râteau B</div>
-        <div class="rateau" onclick="location.href='C.html';">Râteau C</div>
-        <div class="rateau" onclick="location.href='D.html';">Râteau D</div>
+      
+        <ul class="toc-footer">
+          
+        </ul>
+      
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="electre-api">Electre API v1.0.0</h1>
+<blockquote>
+<p>Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.</p>
+</blockquote>
+<p>Base URLs:</p>
+<ul>
+<li><a href="https://api.electre-ng.com">https://api.electre-ng.com</a></li>
+</ul>
+<p>Email: <a href="mailto:api@electre.com">Electre API Team</a> Web: <a href="https://www.electre.com">Electre API Team</a></p>
+<h1 id="authentication">Authentication</h1>
+<ul>
+<li>
+<p>oAuth2 authentication.</p>
+<ul>
+<li>
+<p>Flow: password</p>
+</li>
+<li>
+<p>Token URL = <a href="https://login.electre-ng.com/auth/realms/electre/protocol/openid-connect/token">https://login.electre-ng.com/auth/realms/electre/protocol/openid-connect/token</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Scope</th>
+<th>Scope Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>read</td>
+<td>Grants read access to notices</td>
+</tr>
+<tr>
+<td>write</td>
+<td>Grants write access to notices</td>
+</tr>
+</tbody>
+</table>
+<h1 id="electre-api-notices">Notices</h1>
+<h2 id="get-_notices">GET _notices</h2>
+<p><a id="opIdGET /notices"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
+curl -X GET https://api.electre-ng.com/notices \
+  -H <span class="hljs-string">'Accept: */*'</span> \
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
+
+</code></pre>
+<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.electre-ng.com/notices</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: api.electre-ng.com
+<span class="hljs-attribute">Accept</span>: */*
+
+<span class="undefined"></span></code></pre>
+<pre class="highlight tab tab-javascript"><code>
+<span class="hljs-keyword">const</span> headers = {
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'*/*'</span>,
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
+
+};
+
+fetch(<span class="hljs-string">'https://api.electre-ng.com/notices'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+
+  <span class="hljs-attr">headers</span>: headers
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'*/*'</span>,
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
+}
+
+result = RestClient.get <span class="hljs-string">'https://api.electre-ng.com/notices'</span>,
+  <span class="hljs-symbol">params:</span> {
+  }, <span class="hljs-symbol">headers:</span> headers
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'*/*'</span>,
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
+}
+
+r = requests.get(<span class="hljs-string">'https://api.electre-ng.com/notices'</span>, headers = headers)
+
+print(r.json())
+
+</code></pre>
+<pre class="highlight tab tab-php"><code> <span class="hljs-string">'*/*'</span>,
+    <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
+    
+    );
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'https://api.electre-ng.com/notices'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.electre-ng.com/notices"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="highlight tab tab-go"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"*/*"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
+        
+    }
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.electre-ng.com/notices"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /notices</code></p>
+<p><em>Notices Initialization endpoint</em></p>
+<p>API to fetch all the notices in a paginated way</p>
+<pre><code>                                                                                * test list
+                                                                                * test list2
+
+                                                                                [Test Liens](https://www.grodziski.com)
+</code></pre>
+<h3 id="get-_notices-parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+<th>Min</th>
+<th>Max</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>Offset pour la page appelée</td>
+<td>150</td>
+<td>0</td>
+<td>-</td>
+<td>0</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>Quantité maximale de notices par page</td>
+<td>20</td>
+<td>0</td>
+<td>1000</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<h3 id="get-_notices-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>Notices paginees</td>
+<td>Inline</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-_notices-responseschema">Response Schema</h3>
+<p>Status Code <strong>200</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+<th>Example</th>
+<th>Min</th>
+<th>Max</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» offset</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Offset, tel que passé en paramètre</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» limit</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Quantité maximale de notices par page tel que passé en paramètre</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» total</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Nombre total de notices</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» notices</td>
+<td>[object]</td>
+<td>true</td>
+<td>none</td>
+<td>Liste des notices renvoyées par la requête, une notice regroupe l'ensemble des données commerciales, bibliographiques et de classement</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» supportEtendu</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>Ex : 9782290102350</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» supportEtenduId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code du support étendu (classification étendue, granularité plus fine que celle du code support : ce support est équivalent à celui du portail V2 actuel)</td>
+<td>IFN</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleSupportEtendu</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé du support étendu</td>
+<td>Fichier numérique à télécharger de type « Ecrit » (texte + images fixes)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» flagScolaire</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>Indique si l'ouvrage est un ouvrage scolaire au sens juridique du terme (true)<br />Les livres scolaires font l’objet de dispositions juridiques particulières au regard de la loi sur le prix unique du livre (loi du 10 août 1981) et de la loi sur le droit de prêt (loi du 18 juin 2003).<br />Le décret 2004-922 du 31 août 2004 a reprécisé la définition du livre scolaire pour l’application de ces dispositions.</td>
+<td>&quot;false&quot;<br /><br />Ex article avec le flag scolaire à &quot;true&quot; =  9782210167285</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» rayonsClient</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>classification personalisée de l'organisation calculée à partir des index Electre, pour un usage donné (site web, PIM, système de gestion...)</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» usageRayonId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>destination de la classification (site web, système de gestion, etc.)</td>
+<td>Gestion<br /><br />Autres valeurs : &quot;Web&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» rayonClientId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code du rayon dans la classification</td>
+<td>8530000 (RC CORA)<br />691201001 (CODELEC)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleRayonClient</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Libellé dans la classification de l'organisation</td>
+<td>FICTION / ROMAN - FICTION / ROMAN - GRAND FORMAT (RC CORA)<br />ROMANS ET NOUVELLES GRAND FORMAT (CODELEC)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» catalogue</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Ouvrage issu du catalogue : livre, musique, film, jeuxVidéo</td>
+<td>Livre<br /><br />Autres valeurs possibles :<br /><br />Musique<br />Film<br />Jeux-vidéo</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» mentionsEdition</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Mentions d'édition précisant une caractéristique de l'édition (révisée, nouvelle, augmentée...)</td>
+<td>Nouvelle édition révisée et augmentée</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» dateParution</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Date de parution au format YYYY-MM-DD</td>
+<td>2018-10-11</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» prixDeLancement</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Prix de lancement de l'ouvrage</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» devise</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Code ISO de la devise</td>
+<td>EUR</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» taxes</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>Détail des taxes</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» taxeId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiant la taxe</td>
+<td>TVA</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» horsTaxe</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>montant de lancement hors taxe sur lequel la taxe s'applique</td>
+<td>52.13</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» tva</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>tva sur le produit</td>
+<td>5.5</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» ttc</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>montant de lancement TTC</td>
+<td>55.00</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» dateDebut</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Début de la période durant laquelle le prix de lancement s'applique</td>
+<td>2018-10-11</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» dateFin</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Fin de la période durant laquelle le prix de lancement s'applique</td>
+<td>2019-03-31</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» quatriemeDeCouvertureResume</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Résumé éditeur issu de la quatrième de couverture; <br />temporairement renseigné par un texte Electre <br />tant que la 4e n'est pas disponible</td>
+<td>Ex : 9782070144327<br />&quot;Le disparu ou Amerika&quot; est un roman de formation. Il relate la vie de Karl Rossmann, 17 ans, expédié à New York par ses parents et qui trouve auprès d'un oncle providentiel un abri provisoire. &quot;Le procès&quot; relate les mésaventures de Joseph K, mis aux arrêts sans raison. &quot;Le château&quot; raconte les déboires de l'arpenteur K avec l'administration du château. Romans posthumes. ©Electre 2020</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» clilFel</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Classification CLIL issue de Dilicom</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» clilFelId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code CLIL FEL (Dilicom)</td>
+<td>3436</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleClilFel</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé CLIL FEL (Dilicom)</td>
+<td>Littérature générale -- Oeuvres classiques</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» anneeEdition</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Année d'édition au format YYYY</td>
+<td>2018</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» quatriemeDeCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Résumé éditeur issu de la quatrième de couverture</td>
+<td>9782070144327 (article sans 4e de couv)<br /><br />Ex avec 4e de couv<br />9782330127121<br />Alphonse, quatorze ans, a disparu. Pendant que sa famille le cherche désespérément, il marche le long d'un chemin de campagne et fait face à la plus grande expérience de sa jeune vie : l'invisible. Même si rien ni personne ne l'avait préparé à une telle rencontre, voilà que surgissent en lui, à travers les forces de la nuit, des personnages réels et imaginaires peuplant les coulisses du rêve et de l'amour : Pierre-Paul-René, Judith, Walter, Victor, la grotte...<br /><br />Alphonse est la porte d'entrée d'un univers littéraire insondable, où les vertiges de l'écriture sont éblouissants.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» imageBlurCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>&quot;Blurhash&quot; de l'image de couverture (<a href="https://blurha.sh">https://blurha.sh</a>)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» collections</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>collection d'ouvrages chez un éditeur<br />Ce champ est aussi utilisé pour diffuser les revues</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» collectionId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de la collection</td>
+<td>0-5184<br /><br />Autre Ex : 9782290102343 : 0-6195</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleCollection</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé de la collection</td>
+<td>Bibliothèque de la Pléiade<br /><br />Autre Ex : 9782290102343 : &quot;J'ai lu&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» ISSN</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>code ISSN de la collection</td>
+<td>0768-0562<br /><br />Autre Ex : 9782290102343 : &quot;0291-3623&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» NoDeCollection</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>numéro de l'ouvrage dans la collection</td>
+<td>282</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» sousCollection</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>sous-collection d'ouvrages chez un éditeur</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» sousCollectionId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de la sous-collection</td>
+<td>0-6237</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» libelleSousCollection</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé de la sous-collection</td>
+<td>Fantasy</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» ISSNSousCollection</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>code ISSN de la sous-collection</td>
+<td>1290-6697</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» NoDeSousCollection</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>numéro de l'ouvrage dans la sous-collection</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» descriptionsEbook</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>caractéristiques d'un livre numérique</td>
+<td>Ex : 9782326052307</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» formatEbook</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>format numérique; en cas de pack numérique, tous les formats du pack sont exposés</td>
+<td>EPUB<br /><br />Autres formats Ebook possibles :<br /><br />PDF<br />mobipocket<br />streaming<br />pack multiformat (+ formats compris dans le pack)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» protectionEbook</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>type de protection de l'ebook</td>
+<td>DRM Adobe</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» droitsEbook</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>droits de l'ebook</td>
+<td>Ex : 9782326052307</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» utilisation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>impression<br />copier-coller<br />partage</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» limitation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>interdiction<br />interdiction<br />autorisation sans limite</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» resumeEbook</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>résumé du livre et/ou texte de l'équivalent 4ème de couverture</td>
+<td>Ex : 9782290102367 (idem notice livre imprimé 9782290102343) : &quot;On dit que les mercenaires n’ont pas d’âme, mais ils ont une mémoire. La nôtre, celle de la dernière des compagnies franches de Khatovar, vous la tenez entre vos mains. Ce sont nos entrailles, chaudes et puantes, étalées là devant vous. Vous qui lisez ces annales, ne perdez pas votre temps à nous maudire, car nous le sommes déjà...&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» poidsEbook</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>poids en mégaoctets du fichier numérique</td>
+<td>4.812</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» formatsEbookContenus</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>Ex : 9782820526120</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» eanEbookContenu</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>3612221838859<br />3612221838842<br />3612221838866</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» formatEbookContenu</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>EPUB<br />Mobipocket<br />Streaming</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» protectionEbookContenu</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>filigrane numérique<br />filigrane numérique<br />DRM</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» droitsEbookContenu</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» utilisation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>3612221838859<br />impression<br />copier-coller<br />partage<br /><br />3612221838842<br />impression<br />copier-coller<br />partage<br /><br />3612221838866<br />impression<br />copier-coller</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» limitation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>3612221838859<br />autorisation sans limite<br />autorisation sans limite<br />autorisation sans limite<br /><br />3612221838842<br />autorisation sans limite<br />autorisation sans limite<br />autorisation sans limite<br /><br />3612221838866<br />interdiction<br />autorisation sans limite</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» descriptionEbookContenu</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>ePub avec Watermark<br /><br />Mobipocket avec Watermark<br /><br />Accès streaming : format vous permettant d'accéder en streaming aux ouvrages via notre liseuse web. Pour accéder à ce format, vous devez impérativement disposer d'une connexion à l'Internet et d'une largeur d'écran supérieure à 800 pixels. Actuellement compatible avec Firefox 3 ou supérieur, Safari 4 et Internet Explorer 7 ou supérieur.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» venduSeul</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>false<br />false<br />false</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» poidsEbookContenu</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>0.481<br />1.528<br />-</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» image160pxCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL de l'imagette desktop de la couverture au format JPG de taille 160 pixels de large</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» support</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Support de l'article  (classification simple: ce support est celui du type de produits proposé sur Electre NG et qui permet de distinguer les types de produits différents d'un livre papier dans une liste de résultat ou dans une notice)<br />Un seul support par article.</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» supportId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code du support</td>
+<td>LIV</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleSupport</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>description du support</td>
+<td>&quot;Livre&quot;<br /><br />liste complète libellés support : Revue, Musique, Livre, Poche, Document audio, impression à la demande, jeu, papeterie, film, logiciel éducatif, carte et plan, E-Book PDF, E-Book e-PUB, E-Book Mobipocket, E-Book streaming, E-Book pack multiformat (+ formats compris dans le pack) , Jeu video, Coffret (de livres grand format ou de livres de poche)<br /><br />Autre Ex : 9782290102350 : &quot;E-BOOK ePub&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» titre</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Titre complet de l'ouvrage construit à partir de plusieurs titres</td>
+<td>Ex : 9782070144327 : Oeuvres complètes. Volume 2, Romans</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» rayonsElectreEtendu</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>classification étendue (env. 750 entrées)</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» rayonElectreEtenduId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code rayon Electre, classification étendue</td>
+<td>12LI0H</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleRayonElectreEtendu</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé rayon Electre, classification étendue</td>
+<td>Littérature -- Divers Littérature -- Pléiade étrangers</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» imageCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL de l'image de la couverture au format JPG à la taille maximale</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» extraitPlayer</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Extrait + player consommés ensemble (URL)</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» imagetteCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL de l'imagette mobile de la couverture au format JPG de taille 80 pixels de large</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» biographies</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>courte biographie de l'auteur, issue de la quatrième de couverture (dans les différentes langues si la bio est en plusieurs langues)</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» langue</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>langue de la biographie (&quot;fre&quot;, &quot;eng&quot; ou &quot;xxx&quot;); ce champs n'est pas forcément à afficher mais permet de séparer en affichage les différentes versions de langue</td>
+<td>&quot;fre&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» biographie</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>texte de la biographie</td>
+<td>Né à New York en 1944, Glen Cook peut se vanter d'avoir durablement marqué la fantasy. Tant dans leur forme que par leur propos d'une noirceur sans égal, Les annales de la Compagnie noire font partie de ces oeuvres dont on dit qu'il y a un avant et un après.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» distributeur</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Distributeur</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» distributeurId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant du distributeur Electre</td>
+<td>0-48441</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» distributeurNoticeRef</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Référence de la notice chez le distributeur</td>
+<td>A14432</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» globalLocationNumber</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code distributeur GLN (Global Location Number)</td>
+<td>3012600500000</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» raisonSociale</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>raison sociale du distributeur</td>
+<td>Sodis</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» editeurs</td>
+<td>[object]</td>
+<td>true</td>
+<td>none</td>
+<td>Editeurs</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» editeurId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant Electre de l'éditeur</td>
+<td>0-71483</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» raisonSociale</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>raison sociale de l'éditeur</td>
+<td>Gallimard</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» lieuPublication</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Ville du lieu d'édition</td>
+<td>Paris</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» source</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Source de la notice (electre, btlf, olf, dilicom)<br />Les sources disponibles dépendent de l'abonnement souscrit.</td>
+<td>Electre<br /><br />Autres valeurs possibles :<br /><br />BTLF<br />OLF<br />FEL</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» coffret</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>Ex : 9782409024290 : Coffret = &quot;true&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» felLibelleCaisse</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Désignation   courte   du   produit   (20   caractères)   permettant   au   consommateur de faire le rapprochement entre les articles achetés et les lignes de son ticket de caisse.</td>
+<td>ROMANS KAFKA</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» extrait</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL vers le binaire du fichier epub ou PDF</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» rayonsElectre</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>classification simple (env. 200 entrées)</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» rayonElectreId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code rayon Electre, classification simple</td>
+<td>R0102</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleRayonElectre</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé rayon Electre, classification simple</td>
+<td>Littérature -- Romans étrangers</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» series</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>série d'ouvrages chez un éditeur donné</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» serieId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de la série</td>
+<td>0-358619</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» titreSerie</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>titre de la série</td>
+<td>Oeuvres complètes</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» numeroSerie</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>rang de l'ouvrage dans la série</td>
+<td>2</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» serieIssn</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>N° ISSN de la série</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» noticeId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiant de la notice chez Electre</td>
+<td>0-5325984</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» isbns</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+<td>International Standard Book Number</td>
+<td>978-2-07-014432-7<br /><br />Cas d'un article avec deux EAN : <br /><br />978-2-330-12712-1<br />978-2-7609-1322-6</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» felCodeRetour</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Code indiquant si cet article peut être ou non retourné.<br />- &quot;retour-possible-selon-CGV&quot; (code retour Dilicom 1)<br />- &quot;retour-interdit&quot; (code retour Dilicom 2)<br />- &quot;retour-interdit-sauf-accord-cial&quot; (code retour Dilicom 3)<br />- &quot;retour-sur-couverture&quot; (code retour Dilicom 5)<br />- &quot;retour-sur-couverture-obligatoire&quot; (code retour Dilicom 6)</td>
+<td>3</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» eans</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiants EAN de l'ouvrage (plusieurs EAN possibles)</td>
+<td>9782070144327<br />       <br />Cas d'un article avec deux EAN : <br /><br />9782330127121<br />9782760913226</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» auteursPrincipaux</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>auteurs principaux de l'ouvrage</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» auteurId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de l'auteur</td>
+<td>0-1254743</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» nom</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>nom de l'auteur</td>
+<td>Franz</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» prenom</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>prénom de l'auteur</td>
+<td>Kafka</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» formebib</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>forme bibliographique du nom de l'auteur</td>
+<td>Kafka, Franz</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» typeContribution</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Type de contribution principale (Auteur, Adaptateur, Producteur, etc.), <br />Enumerated values in: [&quot;Auteur&quot;, &quot;Auteur (photographe)&quot;, &quot;Auteur (illustrateur)&quot;, &quot;Interviewer&quot;, &quot;Personne interviewée&quot;, &quot;Auteur du texte&quot;, &quot;Auteur originel&quot;, &quot;Auteur adapté&quot;, &quot;Adaptateur&quot;, &quot;Auteur douteux, prétendu&quot;, &quot;Auteur (artiste)&quot;, &quot;Librettiste&quot;, &quot;Parolier&quot;, &quot;Compositeur&quot;, &quot;Programmeur&quot;, &quot;Infographiste&quot;, &quot;Scénariste&quot;, &quot;Dialoguiste&quot;, &quot;Concepteur&quot;, &quot;Producteur&quot;, &quot;Réalisateur de film&quot;]</td>
+<td>Auteur (Auteur = libelle du code contribution A01)<br />Auteur (photographe = libellé du code contribution A11)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» nationalites</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>nationalités de l'auteur</td>
+<td>Nationalité figurant sur le passeport<br />Tchèque, République, Grande-Breagne (et non pas Ecosse ou Pays de Galle)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» qualificatifs</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+<td>date de naissance, date de mort, titre nobiliaire...</td>
+<td>1883-1924</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» idBNF</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>identifiant BNF de l'auteur</td>
+<td>11909301</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» genres</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>Indexation genre de la base Electre</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» genreId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Code pour toute la branche</td>
+<td>GLET001</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleGenre</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Libellé de toute la branche</td>
+<td>Littératures et textes étrangers classiques -- Traduction en français</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» felImpressionDemande</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>désigne les articles en impression à la demande. L'IAD est aussi un type de produit envoyé dans le champ &quot;support&quot;</td>
+<td>Ex1 : 9782070144327 : Impression à la demande  = &quot;false&quot;<br /><br />Ex2 : 9782010144097 : Impression à la demande  = &quot;true&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» prix</td>
+<td>object</td>
+<td>true</td>
+<td>none</td>
+<td>Prix de vente de l'ouvrage</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» devise</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Code ISO de la devise</td>
+<td>EUR</td>
+<td>none</td>
+<td>none</td>
+<td>EUR</td>
+</tr>
+<tr>
+<td>»»» taxes</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>Détail des taxes : TVA sur le livre (ou sur un autre type de produit si l'article comprend d'autres types de produits)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» taxeId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiant de la taxe (TVA)</td>
+<td>TVA</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» horsTaxe</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>Montant hors taxe sur lequel la taxe s'applique</td>
+<td>56.87</td>
+<td>0</td>
+<td>-</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» tva</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>Taux de taxe appliqué</td>
+<td>5.5</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» ttc</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>Montant TTC</td>
+<td>60.00</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» descriptionPhysique</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>caractéristiques physiques de l'article</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» nbPages</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>none</td>
+<td>nombre de pages</td>
+<td>XXIV-1051</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» largeur</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>largeur de l'ouvrage, en centimètres</td>
+<td>11</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» hauteur</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>hauteur de l'ouvrage, en centimètres</td>
+<td>17</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» epaisseur</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>épaisseur de l'ouvrage, en centimètres</td>
+<td>3.0</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» mentionIllustrations</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>types d'illustrations (illustrations en couleur, en noir et blanc)</td>
+<td>Ex : 9782203191143 : illustrations en couleur</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» poids</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>none</td>
+<td>poids de l'ouvrage, en grammes</td>
+<td>444</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» reliure</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>type de reliure de l'ouvrage</td>
+<td>Relié sous étui</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» flagFiction</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>Indique s'il s'agit d'un ouvrage de fiction ou non.</td>
+<td>&quot;true&quot;<br /><br />Ex article avec le flag fiction à &quot;false&quot; =  9782210167285</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» disponibilite</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Disponibilité de l'ouvrage, Enumerated values in: [&quot;epuise&quot;, &quot;manquan\t&quot;, &quot;a-paraitre&quot;, &quot;disponible&quot;]</td>
+<td>disponible<br /><br />Autres valeurs possibles : <br /><br />épuisé <br />à paraître <br />manquant</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» desactive</td>
+<td>boolean</td>
+<td>true</td>
+<td>none</td>
+<td>Indique si la notice a existée mais a été désactivée. Toujours à FALSE pour le endpoint /init, parfois à TRUE pour le endpoint /updated.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» disponibiliteEtendue</td>
+<td>object</td>
+<td>true</td>
+<td>none</td>
+<td>Disponibilité de l'ouvrage, <br />Enumerated values in:<br /> [&quot;epuise&quot;, &quot;arret de commercialisation&quot;, &quot;ne sera plus distribue&quot;, &quot;reimpression en cours&quot;, &quot;manque provisoirement&quot;, &quot;a-paraitre&quot;, &quot;disponible&quot;]</td>
+<td>Valeurs possibles :<br /><br />1 = disponible<br />2 = à paraître<br />3 = réimpression en cours<br />4 = manque provisoirement <br />5 = épuisé<br />6 = arrêt de commercialisation <br />7 = ne sera plus distribué<br />8 = à reparaitre</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» disponibiliteEtendueId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Valeur de disponibilité parmis 1,2 ,3 ,4, 5, 6, 7 ,8, 9<br />Mapping :<br />disponible                1<br />a-paraitre                 2<br />reimpression-en-cours      3<br />manque-provisoirement    4<br />epuise                     5<br />arret-de-commercialisation 6<br />ne-sera-plus-distribue     7<br />a-reparaitre               8<br />parution-annulee       9</td>
+<td>1</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» disponibiliteEtendueLibelle</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Valeur de disponibilité parmis <br />- disponible <br />- a-paraitre <br />- reimpression-en-cours    <br />- manque-provisoirement <br />- epuise <br />- arret-de-commercialisation <br />- ne-sera-plus-distribue <br />- a-reparaitre <br />- parution-annulee</td>
+<td>disponible</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2 ( Scopes: read )
+</aside>
+<h2 id="get-notices_updated">GET notices_updated</h2>
+<p><a id="opIdGET notices/updated"></a></p>
+<blockquote>
+<p>Code samples</p>
+</blockquote>
+<pre class="highlight tab tab-shell"><code><span class="hljs-comment"># You can also use wget</span>
+curl -X GET https://api.electre-ng.com/notices/updated?from=string&amp;lastndays=0 \
+  -H <span class="hljs-string">'Accept: */*'</span> \
+  -H <span class="hljs-string">'Authorization: Bearer {access-token}'</span>
+
+</code></pre>
+<pre class="highlight tab tab-http"><code><span class="hljs-keyword">GET</span> <span class="hljs-string">https://api.electre-ng.com/notices/updated?from=string&amp;lastndays=0</span> HTTP/1.1
+<span class="hljs-attribute">Host</span>: api.electre-ng.com
+<span class="hljs-attribute">Accept</span>: */*
+
+<span class="undefined"></span></code></pre>
+<pre class="highlight tab tab-javascript"><code>
+<span class="hljs-keyword">const</span> headers = {
+  <span class="hljs-string">'Accept'</span>:<span class="hljs-string">'*/*'</span>,
+  <span class="hljs-string">'Authorization'</span>:<span class="hljs-string">'Bearer {access-token}'</span>
+
+};
+
+fetch(<span class="hljs-string">'https://api.electre-ng.com/notices/updated?from=string&amp;lastndays=0'</span>,
+{
+  <span class="hljs-attr">method</span>: <span class="hljs-string">'GET'</span>,
+
+  <span class="hljs-attr">headers</span>: headers
+})
+.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+    <span class="hljs-keyword">return</span> res.json();
+}).then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">body</span>) </span>{
+    <span class="hljs-built_in">console</span>.log(body);
+});
+
+</code></pre>
+<pre class="highlight tab tab-ruby"><code><span class="hljs-keyword">require</span> <span class="hljs-string">'rest-client'</span>
+<span class="hljs-keyword">require</span> <span class="hljs-string">'json'</span>
+
+headers = {
+  <span class="hljs-string">'Accept'</span> =&gt; <span class="hljs-string">'*/*'</span>,
+  <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>
+}
+
+result = RestClient.get <span class="hljs-string">'https://api.electre-ng.com/notices/updated'</span>,
+  <span class="hljs-symbol">params:</span> {
+  <span class="hljs-string">'from'</span> =&gt; <span class="hljs-string">'string'</span>,
+<span class="hljs-string">'lastndays'</span> =&gt; <span class="hljs-string">'integer(int64)'</span>
+}, <span class="hljs-symbol">headers:</span> headers
+
+p JSON.parse(result)
+
+</code></pre>
+<pre class="highlight tab tab-python"><code><span class="hljs-keyword">import</span> requests
+headers = {
+  <span class="hljs-string">'Accept'</span>: <span class="hljs-string">'*/*'</span>,
+  <span class="hljs-string">'Authorization'</span>: <span class="hljs-string">'Bearer {access-token}'</span>
+}
+
+r = requests.get(<span class="hljs-string">'https://api.electre-ng.com/notices/updated'</span>, params={
+  <span class="hljs-string">'from'</span>: <span class="hljs-string">'string'</span>,  <span class="hljs-string">'lastndays'</span>: <span class="hljs-string">'0'</span>
+}, headers = headers)
+
+print(r.json())
+
+</code></pre>
+<pre class="highlight tab tab-php"><code> <span class="hljs-string">'*/*'</span>,
+    <span class="hljs-string">'Authorization'</span> =&gt; <span class="hljs-string">'Bearer {access-token}'</span>,
+    
+    );
+
+$client = <span class="hljs-keyword">new</span> \GuzzleHttp\Client();
+
+<span class="hljs-comment">// Define array of request body.</span>
+$request_body = <span class="hljs-keyword">array</span>();
+
+<span class="hljs-keyword">try</span> {
+    $response = $client-&gt;request(<span class="hljs-string">'GET'</span>,<span class="hljs-string">'https://api.electre-ng.com/notices/updated'</span>, <span class="hljs-keyword">array</span>(
+        <span class="hljs-string">'headers'</span> =&gt; $headers,
+        <span class="hljs-string">'json'</span> =&gt; $request_body,
+       )
+    );
+    print_r($response-&gt;getBody()-&gt;getContents());
+ }
+ <span class="hljs-keyword">catch</span> (\GuzzleHttp\<span class="hljs-keyword">Exception</span>\BadResponseException $e) {
+    <span class="hljs-comment">// handle exception or api errors.</span>
+    print_r($e-&gt;getMessage());
+ }
+
+ <span class="hljs-comment">// ...</span>
+
+</code></pre>
+<pre class="highlight tab tab-java"><code>URL obj = <span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://api.electre-ng.com/notices/updated?from=string&amp;lastndays=0"</span>);
+HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+con.setRequestMethod(<span class="hljs-string">"GET"</span>);
+<span class="hljs-keyword">int</span> responseCode = con.getResponseCode();
+BufferedReader in = <span class="hljs-keyword">new</span> BufferedReader(
+    <span class="hljs-keyword">new</span> InputStreamReader(con.getInputStream()));
+String inputLine;
+StringBuffer response = <span class="hljs-keyword">new</span> StringBuffer();
+<span class="hljs-keyword">while</span> ((inputLine = in.readLine()) != <span class="hljs-keyword">null</span>) {
+    response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+</code></pre>
+<pre class="highlight tab tab-go"><code><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+       <span class="hljs-string">"bytes"</span>
+       <span class="hljs-string">"net/http"</span>
+)
+
+<span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {
+
+    headers := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">"Accept"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"*/*"</span>},
+        <span class="hljs-string">"Authorization"</span>: []<span class="hljs-keyword">string</span>{<span class="hljs-string">"Bearer {access-token}"</span>},
+        
+    }
+
+    data := bytes.NewBuffer([]<span class="hljs-keyword">byte</span>{jsonReq})
+    req, err := http.NewRequest(<span class="hljs-string">"GET"</span>, <span class="hljs-string">"https://api.electre-ng.com/notices/updated"</span>, data)
+    req.Header = headers
+
+    client := &amp;http.Client{}
+    resp, err := client.Do(req)
+    <span class="hljs-comment">// ...</span>
+}
+
+</code></pre>
+<p><code>GET /notices/updated</code></p>
+<p><em>Updated Notices endpoint</em></p>
+<p>API to fetch the updated notices in a period in a paginated way</p>
+<h3 id="get-notices_updated-parameters">Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>In</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Example</th>
+<th>Min</th>
+<th>Max</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>offset</td>
+<td>query</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>Offset pour la page appelée</td>
+<td>0</td>
+<td>0</td>
+<td>1000</td>
+<td>100</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>query</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>Quantité maximale de notices par page</td>
+<td>20</td>
+<td>0</td>
+<td>-</td>
+<td>0</td>
+</tr>
+<tr>
+<td>from</td>
+<td>query</td>
+<td>string</td>
+<td>true</td>
+<td>timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créés depuis ce timestamp.</td>
+<td>2020-01-01</td>
+<td>none</td>
+<td>none</td>
+<td>-</td>
+</tr>
+<tr>
+<td>to</td>
+<td>query</td>
+<td>string</td>
+<td>false</td>
+<td>timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créées jusqu`à ce timestamp (inclus). Si ce paramètre est absent, on considère l'instant courant.</td>
+<td>2020-01-04</td>
+<td>none</td>
+<td>none</td>
+<td>-</td>
+</tr>
+<tr>
+<td>lastndays</td>
+<td>query</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>nombre entier positif indiquant la période de filtre, le jour courant n'est pas pris en compte dans le filtre (ex: last-n-days=2 exécuté le 3 janvier 2020 filtre les notices modifiées le 1 et 2 janvier, en pratique équivalent à from=2020-01-01). C'est un paramètre de confort pour indiquer facilement les derniers jours sur lesquels le client souhaite avoir les notices modifiées.</td>
+<td>5</td>
+<td>0</td>
+<td>none</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="detailed-descriptions">Detailed descriptions</h4>
+<p><strong>lastndays</strong>: nombre entier positif indiquant la période de filtre, le jour courant n'est pas pris en compte dans le filtre (ex: last-n-days=2 exécuté le 3 janvier 2020 filtre les notices modifiées le 1 et 2 janvier, en pratique équivalent à from=2020-01-01). C'est un paramètre de confort pour indiquer facilement les derniers jours sur lesquels le client souhaite avoir les notices modifiées.
+Les parameters from et to peuvent être utilisés de manière indépendante ou conjointe.
+Au moins un des paramètres from ou lastndays est obligatoire, si lastndays est présent il a la priorité sur les paramètres from et to.</p>
+<blockquote>
+<p>Example responses</p>
+</blockquote>
+<blockquote>
+<p>200 Response</p>
+</blockquote>
+<h3 id="get-notices_updated-responses">Responses</h3>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Meaning</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>Notices paginees</td>
+<td>Inline</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-notices_updated-responseschema">Response Schema</h3>
+<p>Status Code <strong>200</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Restrictions</th>
+<th>Description</th>
+<th>Example</th>
+<th>Min</th>
+<th>Max</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» offset</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Offset, tel que passé en paramètre</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» limit</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Quantité maximale de notices par page tel que passé en paramètre</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» total</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Nombre total de notices</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>» notices</td>
+<td>[object]</td>
+<td>true</td>
+<td>none</td>
+<td>Liste des notices renvoyées par la requête, une notice regroupe l'ensemble des données commerciales, bibliographiques et de classement</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» supportEtendu</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>Ex : 9782290102350</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» supportEtenduId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code du support étendu (classification étendue, granularité plus fine que celle du code support : ce support est équivalent à celui du portail V2 actuel)</td>
+<td>IFN</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleSupportEtendu</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé du support étendu</td>
+<td>Fichier numérique à télécharger de type « Ecrit » (texte + images fixes)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» flagScolaire</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>Indique si l'ouvrage est un ouvrage scolaire au sens juridique du terme (true)<br />Les livres scolaires font l’objet de dispositions juridiques particulières au regard de la loi sur le prix unique du livre (loi du 10 août 1981) et de la loi sur le droit de prêt (loi du 18 juin 2003).<br />Le décret 2004-922 du 31 août 2004 a reprécisé la définition du livre scolaire pour l’application de ces dispositions.</td>
+<td>&quot;false&quot;<br /><br />Ex article avec le flag scolaire à &quot;true&quot; =  9782210167285</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» rayonsClient</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>classification personalisée de l'organisation calculée à partir des index Electre, pour un usage donné (site web, PIM, système de gestion...)</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» usageRayonId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>destination de la classification (site web, système de gestion, etc.)</td>
+<td>Gestion<br /><br />Autres valeurs : &quot;Web&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» rayonClientId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code du rayon dans la classification</td>
+<td>8530000 (RC CORA)<br />691201001 (CODELEC)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleRayonClient</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Libellé dans la classification de l'organisation</td>
+<td>FICTION / ROMAN - FICTION / ROMAN - GRAND FORMAT (RC CORA)<br />ROMANS ET NOUVELLES GRAND FORMAT (CODELEC)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» catalogue</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Ouvrage issu du catalogue : livre, musique, film, jeuxVidéo</td>
+<td>Livre<br /><br />Autres valeurs possibles :<br /><br />Musique<br />Film<br />Jeux-vidéo</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» mentionsEdition</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Mentions d'édition précisant une caractéristique de l'édition (révisée, nouvelle, augmentée...)</td>
+<td>Nouvelle édition révisée et augmentée</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» dateParution</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Date de parution au format YYYY-MM-DD</td>
+<td>2018-10-11</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» prixDeLancement</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Prix de lancement de l'ouvrage</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» devise</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Code ISO de la devise</td>
+<td>EUR</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» taxes</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>Détail des taxes</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» taxeId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiant la taxe</td>
+<td>TVA</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» horsTaxe</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>montant de lancement hors taxe sur lequel la taxe s'applique</td>
+<td>52.13</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» tva</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>tva sur le produit</td>
+<td>5.5</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» ttc</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>montant de lancement TTC</td>
+<td>55.00</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» dateDebut</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Début de la période durant laquelle le prix de lancement s'applique</td>
+<td>2018-10-11</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» dateFin</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Fin de la période durant laquelle le prix de lancement s'applique</td>
+<td>2019-03-31</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» quatriemeDeCouvertureResume</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Résumé éditeur issu de la quatrième de couverture; <br />temporairement renseigné par un texte Electre <br />tant que la 4e n'est pas disponible</td>
+<td>Ex : 9782070144327<br />&quot;Le disparu ou Amerika&quot; est un roman de formation. Il relate la vie de Karl Rossmann, 17 ans, expédié à New York par ses parents et qui trouve auprès d'un oncle providentiel un abri provisoire. &quot;Le procès&quot; relate les mésaventures de Joseph K, mis aux arrêts sans raison. &quot;Le château&quot; raconte les déboires de l'arpenteur K avec l'administration du château. Romans posthumes. ©Electre 2020</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» clilFel</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Classification CLIL issue de Dilicom</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» clilFelId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code CLIL FEL (Dilicom)</td>
+<td>3436</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleClilFel</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé CLIL FEL (Dilicom)</td>
+<td>Littérature générale -- Oeuvres classiques</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» anneeEdition</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Année d'édition au format YYYY</td>
+<td>2018</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» quatriemeDeCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Résumé éditeur issu de la quatrième de couverture</td>
+<td>9782070144327 (article sans 4e de couv)<br /><br />Ex avec 4e de couv<br />9782330127121<br />Alphonse, quatorze ans, a disparu. Pendant que sa famille le cherche désespérément, il marche le long d'un chemin de campagne et fait face à la plus grande expérience de sa jeune vie : l'invisible. Même si rien ni personne ne l'avait préparé à une telle rencontre, voilà que surgissent en lui, à travers les forces de la nuit, des personnages réels et imaginaires peuplant les coulisses du rêve et de l'amour : Pierre-Paul-René, Judith, Walter, Victor, la grotte...<br /><br />Alphonse est la porte d'entrée d'un univers littéraire insondable, où les vertiges de l'écriture sont éblouissants.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» imageBlurCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>&quot;Blurhash&quot; de l'image de couverture (<a href="https://blurha.sh">https://blurha.sh</a>)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» collections</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>collection d'ouvrages chez un éditeur<br />Ce champ est aussi utilisé pour diffuser les revues</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» collectionId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de la collection</td>
+<td>0-5184<br /><br />Autre Ex : 9782290102343 : 0-6195</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleCollection</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé de la collection</td>
+<td>Bibliothèque de la Pléiade<br /><br />Autre Ex : 9782290102343 : &quot;J'ai lu&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» ISSN</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>code ISSN de la collection</td>
+<td>0768-0562<br /><br />Autre Ex : 9782290102343 : &quot;0291-3623&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» NoDeCollection</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>numéro de l'ouvrage dans la collection</td>
+<td>282</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» sousCollection</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>sous-collection d'ouvrages chez un éditeur</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» sousCollectionId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de la sous-collection</td>
+<td>0-6237</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» libelleSousCollection</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé de la sous-collection</td>
+<td>Fantasy</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» ISSNSousCollection</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>code ISSN de la sous-collection</td>
+<td>1290-6697</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» NoDeSousCollection</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>numéro de l'ouvrage dans la sous-collection</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» descriptionsEbook</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>caractéristiques d'un livre numérique</td>
+<td>Ex : 9782326052307</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» formatEbook</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>format numérique; en cas de pack numérique, tous les formats du pack sont exposés</td>
+<td>EPUB<br /><br />Autres formats Ebook possibles :<br /><br />PDF<br />mobipocket<br />streaming<br />pack multiformat (+ formats compris dans le pack)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» protectionEbook</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>type de protection de l'ebook</td>
+<td>DRM Adobe</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» droitsEbook</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>droits de l'ebook</td>
+<td>Ex : 9782326052307</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» utilisation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>impression<br />copier-coller<br />partage</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» limitation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>interdiction<br />interdiction<br />autorisation sans limite</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» resumeEbook</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>résumé du livre et/ou texte de l'équivalent 4ème de couverture</td>
+<td>Ex : 9782290102367 (idem notice livre imprimé 9782290102343) : &quot;On dit que les mercenaires n’ont pas d’âme, mais ils ont une mémoire. La nôtre, celle de la dernière des compagnies franches de Khatovar, vous la tenez entre vos mains. Ce sont nos entrailles, chaudes et puantes, étalées là devant vous. Vous qui lisez ces annales, ne perdez pas votre temps à nous maudire, car nous le sommes déjà...&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» poidsEbook</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>poids en mégaoctets du fichier numérique</td>
+<td>4.812</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» formatsEbookContenus</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>Ex : 9782820526120</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» eanEbookContenu</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>3612221838859<br />3612221838842<br />3612221838866</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» formatEbookContenu</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>EPUB<br />Mobipocket<br />Streaming</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» protectionEbookContenu</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>filigrane numérique<br />filigrane numérique<br />DRM</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» droitsEbookContenu</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» utilisation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>3612221838859<br />impression<br />copier-coller<br />partage<br /><br />3612221838842<br />impression<br />copier-coller<br />partage<br /><br />3612221838866<br />impression<br />copier-coller</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»»» limitation</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>none</td>
+<td>3612221838859<br />autorisation sans limite<br />autorisation sans limite<br />autorisation sans limite<br /><br />3612221838842<br />autorisation sans limite<br />autorisation sans limite<br />autorisation sans limite<br /><br />3612221838866<br />interdiction<br />autorisation sans limite</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» descriptionEbookContenu</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>ePub avec Watermark<br /><br />Mobipocket avec Watermark<br /><br />Accès streaming : format vous permettant d'accéder en streaming aux ouvrages via notre liseuse web. Pour accéder à ce format, vous devez impérativement disposer d'une connexion à l'Internet et d'une largeur d'écran supérieure à 800 pixels. Actuellement compatible avec Firefox 3 ou supérieur, Safari 4 et Internet Explorer 7 ou supérieur.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» venduSeul</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>false<br />false<br />false</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» poidsEbookContenu</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>0.481<br />1.528<br />-</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» image160pxCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL de l'imagette desktop de la couverture au format JPG de taille 160 pixels de large</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» support</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Support de l'article  (classification simple: ce support est celui du type de produits proposé sur Electre NG et qui permet de distinguer les types de produits différents d'un livre papier dans une liste de résultat ou dans une notice)<br />Un seul support par article.</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» supportId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code du support</td>
+<td>LIV</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleSupport</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>description du support</td>
+<td>&quot;Livre&quot;<br /><br />liste complète libellés support : Revue, Musique, Livre, Poche, Document audio, impression à la demande, jeu, papeterie, film, logiciel éducatif, carte et plan, E-Book PDF, E-Book e-PUB, E-Book Mobipocket, E-Book streaming, E-Book pack multiformat (+ formats compris dans le pack) , Jeu video, Coffret (de livres grand format ou de livres de poche)<br /><br />Autre Ex : 9782290102350 : &quot;E-BOOK ePub&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» titre</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Titre complet de l'ouvrage construit à partir de plusieurs titres</td>
+<td>Ex : 9782070144327 : Oeuvres complètes. Volume 2, Romans</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» rayonsElectreEtendu</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>classification étendue (env. 750 entrées)</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» rayonElectreEtenduId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code rayon Electre, classification étendue</td>
+<td>12LI0H</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleRayonElectreEtendu</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé rayon Electre, classification étendue</td>
+<td>Littérature -- Divers Littérature -- Pléiade étrangers</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» imageCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL de l'image de la couverture au format JPG à la taille maximale</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» extraitPlayer</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Extrait + player consommés ensemble (URL)</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» imagetteCouverture</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL de l'imagette mobile de la couverture au format JPG de taille 80 pixels de large</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» biographies</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>courte biographie de l'auteur, issue de la quatrième de couverture (dans les différentes langues si la bio est en plusieurs langues)</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» langue</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>langue de la biographie (&quot;fre&quot;, &quot;eng&quot; ou &quot;xxx&quot;); ce champs n'est pas forcément à afficher mais permet de séparer en affichage les différentes versions de langue</td>
+<td>&quot;fre&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» biographie</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>texte de la biographie</td>
+<td>Né à New York en 1944, Glen Cook peut se vanter d'avoir durablement marqué la fantasy. Tant dans leur forme que par leur propos d'une noirceur sans égal, Les annales de la Compagnie noire font partie de ces oeuvres dont on dit qu'il y a un avant et un après.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» distributeur</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>Distributeur</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» distributeurId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant du distributeur Electre</td>
+<td>0-48441</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» distributeurNoticeRef</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Référence de la notice chez le distributeur</td>
+<td>A14432</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» globalLocationNumber</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code distributeur GLN (Global Location Number)</td>
+<td>3012600500000</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» raisonSociale</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>raison sociale du distributeur</td>
+<td>Sodis</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» editeurs</td>
+<td>[object]</td>
+<td>true</td>
+<td>none</td>
+<td>Editeurs</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» editeurId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant Electre de l'éditeur</td>
+<td>0-71483</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» raisonSociale</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>raison sociale de l'éditeur</td>
+<td>Gallimard</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» lieuPublication</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Ville du lieu d'édition</td>
+<td>Paris</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» source</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Source de la notice (electre, btlf, olf, dilicom)<br />Les sources disponibles dépendent de l'abonnement souscrit.</td>
+<td>Electre<br /><br />Autres valeurs possibles :<br /><br />BTLF<br />OLF<br />FEL</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» coffret</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>none</td>
+<td>Ex : 9782409024290 : Coffret = &quot;true&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» felLibelleCaisse</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Désignation   courte   du   produit   (20   caractères)   permettant   au   consommateur de faire le rapprochement entre les articles achetés et les lignes de son ticket de caisse.</td>
+<td>ROMANS KAFKA</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» extrait</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>URL vers le binaire du fichier epub ou PDF</td>
+<td>Ex : 9782290102343</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» rayonsElectre</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>classification simple (env. 200 entrées)</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» rayonElectreId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>code rayon Electre, classification simple</td>
+<td>R0102</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleRayonElectre</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>libellé rayon Electre, classification simple</td>
+<td>Littérature -- Romans étrangers</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» series</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>série d'ouvrages chez un éditeur donné</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» serieId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de la série</td>
+<td>0-358619</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» titreSerie</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>titre de la série</td>
+<td>Oeuvres complètes</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» numeroSerie</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>rang de l'ouvrage dans la série</td>
+<td>2</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» serieIssn</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>N° ISSN de la série</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» noticeId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiant de la notice chez Electre</td>
+<td>0-5325984</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» isbns</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+<td>International Standard Book Number</td>
+<td>978-2-07-014432-7<br /><br />Cas d'un article avec deux EAN : <br /><br />978-2-330-12712-1<br />978-2-7609-1322-6</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» felCodeRetour</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>Code indiquant si cet article peut être ou non retourné.<br />- &quot;retour-possible-selon-CGV&quot; (code retour Dilicom 1)<br />- &quot;retour-interdit&quot; (code retour Dilicom 2)<br />- &quot;retour-interdit-sauf-accord-cial&quot; (code retour Dilicom 3)<br />- &quot;retour-sur-couverture&quot; (code retour Dilicom 5)<br />- &quot;retour-sur-couverture-obligatoire&quot; (code retour Dilicom 6)</td>
+<td>3</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» eans</td>
+<td>[string]</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiants EAN de l'ouvrage (plusieurs EAN possibles)</td>
+<td>9782070144327<br />       <br />Cas d'un article avec deux EAN : <br /><br />9782330127121<br />9782760913226</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» auteursPrincipaux</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>auteurs principaux de l'ouvrage</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» auteurId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>identifiant de l'auteur</td>
+<td>0-1254743</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» nom</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>nom de l'auteur</td>
+<td>Franz</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» prenom</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>prénom de l'auteur</td>
+<td>Kafka</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» formebib</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>forme bibliographique du nom de l'auteur</td>
+<td>Kafka, Franz</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» typeContribution</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Type de contribution principale (Auteur, Adaptateur, Producteur, etc.), <br />Enumerated values in: [&quot;Auteur&quot;, &quot;Auteur (photographe)&quot;, &quot;Auteur (illustrateur)&quot;, &quot;Interviewer&quot;, &quot;Personne interviewée&quot;, &quot;Auteur du texte&quot;, &quot;Auteur originel&quot;, &quot;Auteur adapté&quot;, &quot;Adaptateur&quot;, &quot;Auteur douteux, prétendu&quot;, &quot;Auteur (artiste)&quot;, &quot;Librettiste&quot;, &quot;Parolier&quot;, &quot;Compositeur&quot;, &quot;Programmeur&quot;, &quot;Infographiste&quot;, &quot;Scénariste&quot;, &quot;Dialoguiste&quot;, &quot;Concepteur&quot;, &quot;Producteur&quot;, &quot;Réalisateur de film&quot;]</td>
+<td>Auteur (Auteur = libelle du code contribution A01)<br />Auteur (photographe = libellé du code contribution A11)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» nationalites</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>nationalités de l'auteur</td>
+<td>Nationalité figurant sur le passeport<br />Tchèque, République, Grande-Breagne (et non pas Ecosse ou Pays de Galle)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» qualificatifs</td>
+<td>[string]</td>
+<td>false</td>
+<td>none</td>
+<td>date de naissance, date de mort, titre nobiliaire...</td>
+<td>1883-1924</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» idBNF</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>identifiant BNF de l'auteur</td>
+<td>11909301</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» genres</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>Indexation genre de la base Electre</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» genreId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Code pour toute la branche</td>
+<td>GLET001</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» libelleGenre</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Libellé de toute la branche</td>
+<td>Littératures et textes étrangers classiques -- Traduction en français</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» felImpressionDemande</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>désigne les articles en impression à la demande. L'IAD est aussi un type de produit envoyé dans le champ &quot;support&quot;</td>
+<td>Ex1 : 9782070144327 : Impression à la demande  = &quot;false&quot;<br /><br />Ex2 : 9782010144097 : Impression à la demande  = &quot;true&quot;</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» prix</td>
+<td>object</td>
+<td>true</td>
+<td>none</td>
+<td>Prix de vente de l'ouvrage</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» devise</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Code ISO de la devise</td>
+<td>EUR</td>
+<td>none</td>
+<td>none</td>
+<td>EUR</td>
+</tr>
+<tr>
+<td>»»» taxes</td>
+<td>[object]</td>
+<td>false</td>
+<td>none</td>
+<td>Détail des taxes : TVA sur le livre (ou sur un autre type de produit si l'article comprend d'autres types de produits)</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» taxeId</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Identifiant de la taxe (TVA)</td>
+<td>TVA</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» horsTaxe</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>Montant hors taxe sur lequel la taxe s'applique</td>
+<td>56.87</td>
+<td>0</td>
+<td>-</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»»» tva</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>Taux de taxe appliqué</td>
+<td>5.5</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» ttc</td>
+<td>number(double)</td>
+<td>true</td>
+<td>none</td>
+<td>Montant TTC</td>
+<td>60.00</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» descriptionPhysique</td>
+<td>object</td>
+<td>false</td>
+<td>none</td>
+<td>caractéristiques physiques de l'article</td>
+<td>Ex : 9782070144327</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» nbPages</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>none</td>
+<td>nombre de pages</td>
+<td>XXIV-1051</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» largeur</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>largeur de l'ouvrage, en centimètres</td>
+<td>11</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» hauteur</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>hauteur de l'ouvrage, en centimètres</td>
+<td>17</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» epaisseur</td>
+<td>number(double)</td>
+<td>false</td>
+<td>none</td>
+<td>épaisseur de l'ouvrage, en centimètres</td>
+<td>3.0</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» mentionIllustrations</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>types d'illustrations (illustrations en couleur, en noir et blanc)</td>
+<td>Ex : 9782203191143 : illustrations en couleur</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» poids</td>
+<td>integer(int64)</td>
+<td>false</td>
+<td>none</td>
+<td>poids de l'ouvrage, en grammes</td>
+<td>444</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» reliure</td>
+<td>string</td>
+<td>false</td>
+<td>none</td>
+<td>type de reliure de l'ouvrage</td>
+<td>Relié sous étui</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» flagFiction</td>
+<td>boolean</td>
+<td>false</td>
+<td>none</td>
+<td>Indique s'il s'agit d'un ouvrage de fiction ou non.</td>
+<td>&quot;true&quot;<br /><br />Ex article avec le flag fiction à &quot;false&quot; =  9782210167285</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» disponibilite</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Disponibilité de l'ouvrage, Enumerated values in: [&quot;epuise&quot;, &quot;manquan\t&quot;, &quot;a-paraitre&quot;, &quot;disponible&quot;]</td>
+<td>disponible<br /><br />Autres valeurs possibles : <br /><br />épuisé <br />à paraître <br />manquant</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» desactive</td>
+<td>boolean</td>
+<td>true</td>
+<td>none</td>
+<td>Indique si la notice a existée mais a été désactivée. Toujours à FALSE pour le endpoint /init, parfois à TRUE pour le endpoint /updated.</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» disponibiliteEtendue</td>
+<td>object</td>
+<td>true</td>
+<td>none</td>
+<td>Disponibilité de l'ouvrage, <br />Enumerated values in:<br /> [&quot;epuise&quot;, &quot;arret de commercialisation&quot;, &quot;ne sera plus distribue&quot;, &quot;reimpression en cours&quot;, &quot;manque provisoirement&quot;, &quot;a-paraitre&quot;, &quot;disponible&quot;]</td>
+<td>Valeurs possibles :<br /><br />1 = disponible<br />2 = à paraître<br />3 = réimpression en cours<br />4 = manque provisoirement <br />5 = épuisé<br />6 = arrêt de commercialisation <br />7 = ne sera plus distribué<br />8 = à reparaitre</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» disponibiliteEtendueId</td>
+<td>integer(int64)</td>
+<td>true</td>
+<td>none</td>
+<td>Valeur de disponibilité parmis 1,2 ,3 ,4, 5, 6, 7 ,8, 9<br />Mapping :<br />disponible                1<br />a-paraitre                 2<br />reimpression-en-cours      3<br />manque-provisoirement    4<br />epuise                     5<br />arret-de-commercialisation 6<br />ne-sera-plus-distribue     7<br />a-reparaitre               8<br />parution-annulee       9</td>
+<td>1</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+<tr>
+<td>»»» disponibiliteEtendueLibelle</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td>Valeur de disponibilité parmis <br />- disponible <br />- a-paraitre <br />- reimpression-en-cours    <br />- manque-provisoirement <br />- epuise <br />- arret-de-commercialisation <br />- ne-sera-plus-distribue <br />- a-reparaitre <br />- parution-annulee</td>
+<td>disponible</td>
+<td>none</td>
+<td>none</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+OAuth2 ( Scopes: read )
+</aside>
+<!-- Renderer: Shins v2.4.1-0 -->
+<!-- Generator: Widdershins v3.6.6 -->
+      </div>
+      <div class="dark-box">
+        
+          <div class="lang-selector">
+            
+              
+                <a href="#" data-language-name="shell">Shell</a>
+              
+            
+              
+                <a href="#" data-language-name="http">HTTP</a>
+              
+            
+              
+                <a href="#" data-language-name="javascript">JavaScript</a>
+              
+            
+              
+                <a href="#" data-language-name="ruby">Ruby</a>
+              
+            
+              
+                <a href="#" data-language-name="python">Python</a>
+              
+            
+              
+                <a href="#" data-language-name="php">PHP</a>
+              
+            
+              
+                <a href="#" data-language-name="java">Java</a>
+              
+            
+              
+                <a href="#" data-language-name="go">Go</a>
+              
+            
+          </div>
+        
       </div>
     </div>
   </body>

@@ -19,6 +19,10 @@ a:hover {
   color: #2487e4;
 }
 
+.toc-list-h1 a, .toc-list-h1 a:visited {
+  color: white;
+}
+
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6, html, body {
   font-size: 16px;
 }
@@ -77,9 +81,17 @@ a:hover {
 
 
 .page-wrapper .lang-selector {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: calc( calc(100% - 230px) * 0.3);
   border-bottom: solid 4px #0F75D4;
   padding: 5px 10px 0 10px;
   background-color: rgba(19, 21, 27, 0.6);
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .lang-selector a {
@@ -89,4 +101,18 @@ a:hover {
 .lang-selector a.active {
   background-color: #0F75D4;
   border-radius: 4px 4px 0 0;
+}
+
+
+
+.content > h1, .content > h2, .content > h3, .content > h4, .content > h5, .content > h6, .content > p, .content > table, .content > ul, .content > ol, .content > aside, .content > dl {
+  margin-right: 30%;
+}
+
+.page-wrapper .dark-box {
+  width: 30%;
+}
+
+.content pre, .content blockquote {
+  width: 30%;
 }
