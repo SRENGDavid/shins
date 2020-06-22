@@ -23,6 +23,8 @@ headingLevel: 2
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
+[Swagger JSON file](swagger-rateau-02.json)
+
 Base URLs:
 
 * <a href="https://api.electre-ng.com">https://api.electre-ng.com</a>
@@ -44,9 +46,9 @@ Email: <a href="mailto:api@electre.com">Electre API Team</a> Web: <a href="https
 
 <h1 id="electre-api-notices">Notices</h1>
 
-## GET _notices
+## GET Notices
 
-<a id="opIdGET /notices"></a>
+<a id="opIdGET Notices"></a>
 
 > Code samples
 
@@ -198,14 +200,9 @@ func main() {
 
 *Notices Initialization endpoint*
 
-API to fetch all the notices in a paginated way
+API to fetch all the notices in a paginated way.
 
-                                                                                    * test list
-                                                                                    * test list2
-
-                                                                                    [Test Liens](https://www.grodziski.com)
-
-<h3 id="get-_notices-parameters">Parameters</h3>
+<h3 id="get-notices-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|Example|Min|Max|Default|
 |---|---|---|---|---|---|---|---|---|
@@ -216,13 +213,13 @@ API to fetch all the notices in a paginated way
 
 > 200 Response
 
-<h3 id="get-_notices-responses">Responses</h3>
+<h3 id="get-notices-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Notices paginees|Inline|
 
-<h3 id="get-_notices-responseschema">Response Schema</h3>
+<h3 id="get-notices-responseschema">Response Schema</h3>
 
 Status Code **200**
 
@@ -322,7 +319,7 @@ Status Code **200**
 |»»» titreSerie|string|true|none|titre de la série|Oeuvres complètes|none|none|none|
 |»»» numeroSerie|string|false|none|rang de l'ouvrage dans la série|2|none|none|none|
 |»»» serieIssn|string|false|none|N° ISSN de la série|none|none|none|none|
-|»» noticeId|integer(int64)|true|none|Identifiant de la notice chez Electre|0-5325984|none|none|none|
+|»» noticeId|integer(int64)|true|none|Identifiant de la notice chez Electre|5325984|none|none|none|
 |»» isbns|[string]|false|none|International Standard Book Number|978-2-07-014432-7<br><br>Cas d'un article avec deux EAN : <br><br>978-2-330-12712-1<br>978-2-7609-1322-6|none|none|none|
 |»» felCodeRetour|string|false|none|Code indiquant si cet article peut être ou non retourné.<br>- "retour-possible-selon-CGV" (code retour Dilicom 1)<br>- "retour-interdit" (code retour Dilicom 2)<br>- "retour-interdit-sauf-accord-cial" (code retour Dilicom 3)<br>- "retour-sur-couverture" (code retour Dilicom 5)<br>- "retour-sur-couverture-obligatoire" (code retour Dilicom 6)|3|none|none|none|
 |»» eans|[string]|true|none|Identifiants EAN de l'ouvrage (plusieurs EAN possibles)|9782070144327<br>       <br>Cas d'un article avec deux EAN : <br><br>9782330127121<br>9782760913226|none|none|none|
@@ -366,9 +363,9 @@ To perform this operation, you must be authenticated by means of one of the foll
 OAuth2 ( Scopes: read )
 </aside>
 
-## GET notices_updated
+## GET Notices Updated
 
-<a id="opIdGET notices/updated"></a>
+<a id="opIdGET Notices Updated"></a>
 
 > Code samples
 
@@ -526,14 +523,14 @@ func main() {
 
 API to fetch the updated notices in a period in a paginated way
 
-<h3 id="get-notices_updated-parameters">Parameters</h3>
+<h3 id="get-notices-updated-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|Example|Min|Max|Default|
 |---|---|---|---|---|---|---|---|---|
 |offset|query|integer(int64)|false|Offset pour la page appelée|0|0|1000|100|
 |limit|query|integer(int64)|false|Quantité maximale de notices par page|20|0|-|0|
-|from|query|string|true|timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créés depuis ce timestamp.|2020-01-01|none|none|-|
-|to|query|string|false|timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créées jusqu`à ce timestamp (inclus). Si ce paramètre est absent, on considère l'instant courant.|2020-01-04|none|none|-|
+|from|query|string|true|timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créés depuis ce timestamp.|2020-01-01:09:41:32|none|none|-|
+|to|query|string|false|timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créées jusqu`à ce timestamp (inclus). Si ce paramètre est absent, on considère l'instant courant.|2020-01-04:14:12:00|none|none|-|
 |lastndays|query|integer(int64)|true|nombre entier positif indiquant la période de filtre, le jour courant n'est pas pris en compte dans le filtre (ex: last-n-days=2 exécuté le 3 janvier 2020 filtre les notices modifiées le 1 et 2 janvier, en pratique équivalent à from=2020-01-01). C'est un paramètre de confort pour indiquer facilement les derniers jours sur lesquels le client souhaite avoir les notices modifiées.|5|0|none|-|
 
 #### Detailed descriptions
@@ -546,13 +543,13 @@ Au moins un des paramètres from ou lastndays est obligatoire, si lastndays est 
 
 > 200 Response
 
-<h3 id="get-notices_updated-responses">Responses</h3>
+<h3 id="get-notices-updated-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Notices paginees|Inline|
 
-<h3 id="get-notices_updated-responseschema">Response Schema</h3>
+<h3 id="get-notices-updated-responseschema">Response Schema</h3>
 
 Status Code **200**
 
@@ -652,7 +649,7 @@ Status Code **200**
 |»»» titreSerie|string|true|none|titre de la série|Oeuvres complètes|none|none|none|
 |»»» numeroSerie|string|false|none|rang de l'ouvrage dans la série|2|none|none|none|
 |»»» serieIssn|string|false|none|N° ISSN de la série|none|none|none|none|
-|»» noticeId|integer(int64)|true|none|Identifiant de la notice chez Electre|0-5325984|none|none|none|
+|»» noticeId|integer(int64)|true|none|Identifiant de la notice chez Electre|5325984|none|none|none|
 |»» isbns|[string]|false|none|International Standard Book Number|978-2-07-014432-7<br><br>Cas d'un article avec deux EAN : <br><br>978-2-330-12712-1<br>978-2-7609-1322-6|none|none|none|
 |»» felCodeRetour|string|false|none|Code indiquant si cet article peut être ou non retourné.<br>- "retour-possible-selon-CGV" (code retour Dilicom 1)<br>- "retour-interdit" (code retour Dilicom 2)<br>- "retour-interdit-sauf-accord-cial" (code retour Dilicom 3)<br>- "retour-sur-couverture" (code retour Dilicom 5)<br>- "retour-sur-couverture-obligatoire" (code retour Dilicom 6)|3|none|none|none|
 |»» eans|[string]|true|none|Identifiants EAN de l'ouvrage (plusieurs EAN possibles)|9782070144327<br>       <br>Cas d'un article avec deux EAN : <br><br>9782330127121<br>9782760913226|none|none|none|
