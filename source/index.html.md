@@ -321,7 +321,7 @@ Status Code **200**
 |»»» serieIssn|string|false|none|N° ISSN de la série|none|none|none|none|
 |»» noticeId|integer(int64)|true|none|Identifiant de la notice chez Electre|5325984|none|none|none|
 |»» isbns|[string]|false|none|International Standard Book Number|978-2-07-014432-7<br><br>Cas d'un article avec deux EAN : <br><br>978-2-330-12712-1<br>978-2-7609-1322-6|none|none|none|
-|»» felCodeRetour|string|false|none|Code indiquant si cet article peut être ou non retourné.<br>- "retour-possible-selon-CGV" (code retour Dilicom 1)<br>- "retour-interdit" (code retour Dilicom 2)<br>- "retour-interdit-sauf-accord-cial" (code retour Dilicom 3)<br>- "retour-sur-couverture" (code retour Dilicom 5)<br>- "retour-sur-couverture-obligatoire" (code retour Dilicom 6)|3|none|none|none|
+|»» felCodeRetour|integer(int64)|false|none|Code indiquant si cet article peut être ou non retourné.<br>- "retour-possible-selon-CGV" (code retour Dilicom 1)<br>- "retour-interdit" (code retour Dilicom 2)<br>- "retour-interdit-sauf-accord-cial" (code retour Dilicom 3)<br>- "retour-sur-couverture" (code retour Dilicom 5)<br>- "retour-sur-couverture-obligatoire" (code retour Dilicom 6)|3|none|none|none|
 |»» eans|[string]|true|none|Identifiants EAN de l'ouvrage (plusieurs EAN possibles)|9782070144327<br>       <br>Cas d'un article avec deux EAN : <br><br>9782330127121<br>9782760913226|none|none|none|
 |»» auteursPrincipaux|[object]|false|none|auteurs principaux de l'ouvrage|Ex : 9782070144327|none|none|none|
 |»»» auteurId|string|true|none|identifiant de l'auteur|0-1254743|none|none|none|
@@ -651,7 +651,7 @@ Status Code **200**
 |»»» serieIssn|string|false|none|N° ISSN de la série|none|none|none|none|
 |»» noticeId|integer(int64)|true|none|Identifiant de la notice chez Electre|5325984|none|none|none|
 |»» isbns|[string]|false|none|International Standard Book Number|978-2-07-014432-7<br><br>Cas d'un article avec deux EAN : <br><br>978-2-330-12712-1<br>978-2-7609-1322-6|none|none|none|
-|»» felCodeRetour|string|false|none|Code indiquant si cet article peut être ou non retourné.<br>- "retour-possible-selon-CGV" (code retour Dilicom 1)<br>- "retour-interdit" (code retour Dilicom 2)<br>- "retour-interdit-sauf-accord-cial" (code retour Dilicom 3)<br>- "retour-sur-couverture" (code retour Dilicom 5)<br>- "retour-sur-couverture-obligatoire" (code retour Dilicom 6)|3|none|none|none|
+|»» felCodeRetour|integer(int64)|false|none|Code indiquant si cet article peut être ou non retourné.<br>- "retour-possible-selon-CGV" (code retour Dilicom 1)<br>- "retour-interdit" (code retour Dilicom 2)<br>- "retour-interdit-sauf-accord-cial" (code retour Dilicom 3)<br>- "retour-sur-couverture" (code retour Dilicom 5)<br>- "retour-sur-couverture-obligatoire" (code retour Dilicom 6)|3|none|none|none|
 |»» eans|[string]|true|none|Identifiants EAN de l'ouvrage (plusieurs EAN possibles)|9782070144327<br>       <br>Cas d'un article avec deux EAN : <br><br>9782330127121<br>9782760913226|none|none|none|
 |»» auteursPrincipaux|[object]|false|none|auteurs principaux de l'ouvrage|Ex : 9782070144327|none|none|none|
 |»»» auteurId|string|true|none|identifiant de l'auteur|0-1254743|none|none|none|
