@@ -4,7 +4,8 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,700&display=swap');
 
 * {
-  font-family: 'Source Sans Pro', sans-serif;;
+  font-family: 'Source Sans Pro', sans-serif;
+  box-sizing: border-box;
 }
 
 a, a:visited {
@@ -85,13 +86,15 @@ a:hover {
   position: fixed;
   top: 0;
   right: 0;
-  width: calc( calc(100% - 230px) * 0.3);
+  left: 230px;
+  /* width: calc( calc(100% - 230px) * 0.3); */
   border-bottom: solid 4px #0F75D4;
   padding: 5px 10px 0 10px;
-  background-color: rgba(19, 21, 27, 0.6);
+  background-color: #2e323a;
   overflow-x: scroll;
   display: flex;
   flex-wrap: nowrap;
+  
 }
 
 .lang-selector a {
@@ -104,15 +107,55 @@ a:hover {
 }
 
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  /* overflow: auto; */
+}
+
 
 .content > h1, .content > h2, .content > h3, .content > h4, .content > h5, .content > h6, .content > p, .content > table, .content > ul, .content > ol, .content > aside, .content > dl {
-  margin-right: 30%;
+  margin-right: 0%;
+}
+
+.content h1:first-child {
+  padding-top: 50px;
 }
 
 .page-wrapper .dark-box {
-  width: 30%;
+  width: 0%;
+}
+
+.content table {
+  overflow: visible;
 }
 
 .content pre, .content blockquote {
-  width: 30%;
+  /* width: 100%; */
+  /* max-width: 100%; */
+  float: none;
+  align-self: stretch;
+  position: relative;
+  margin: 0 28px;
+  width: calc(100% - 56px);
+}
+
+div .highlight {
+  max-width: 100%;
+}
+
+.content blockquote {
+  background-color: #171a1f; 
+  /* border-radius: 8px; */
+}
+
+.content blockquote > p {
+  background-color: transparent;
+}
+
+.content pre {
+  background-color: #2b3039;
+  /* border-radius: 8px; */
 }
