@@ -529,8 +529,8 @@ API to fetch the updated notices in a period in a paginated way
 |---|---|---|---|---|---|---|---|---|
 |offset|query|integer(int64)|false|Offset pour la page appelée|0|0|1000|100|
 |limit|query|integer(int64)|false|Quantité maximale de notices par page|20|0|-|0|
-|from|query|string|true|timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créés depuis ce timestamp.|2020-01-01:09:41:32|none|none|-|
-|to|query|string|false|timestamp au format YYYY-MM-DD-HH:mm:ss filtrant toutes les notices modifiées ou créées jusqu`à ce timestamp (inclus). Si ce paramètre est absent, on considère l'instant courant.|2020-01-04:14:12:00|none|none|-|
+|from|query|string|true|timestamp au format ISO-8601 YYYY-MM-DDTHH:mm:ss filtrant toutes les notices modifiées ou créés depuis ce timestamp.|2020-01-01T09:41:32|none|none|-|
+|to|query|string|false|timestamp au format ISO-8601 YYYY-MM-DDTHH:mm:ss filtrant toutes les notices modifiées ou créées jusqu`à ce timestamp (inclus). Si ce paramètre est absent, on considère l'instant courant.|2020-01-04T14:12:00|none|none|-|
 |lastndays|query|integer(int64)|true|nombre entier positif indiquant la période de filtre, le jour courant n'est pas pris en compte dans le filtre (ex: last-n-days=2 exécuté le 3 janvier 2020 filtre les notices modifiées le 1 et 2 janvier, en pratique équivalent à from=2020-01-01). C'est un paramètre de confort pour indiquer facilement les derniers jours sur lesquels le client souhaite avoir les notices modifiées.|5|0|none|-|
 
 #### Detailed descriptions
