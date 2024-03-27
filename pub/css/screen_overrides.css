@@ -42,3 +42,21 @@ div .highlight {
     background: rgba(0, 0, 0, 0.01);
 }
 
+table td + td { border-left:1px solid grey; }
+
+.content table td {
+    padding: 0px 10px 0px 10px;
+    line-height: normal;
+}
+
+.content table tr:nth-child(2n) > td{
+    background-color: #ebebeb ;
+}
+
+.content table td:nth-of-type(1) {
+    /* Avoid the first column of tables to have line breaks, to keep the tree structure easy to read in HTTP responses */
+    white-space: nowrap;
+    /* specific font family and font size, to not have issues displaying Unicode characters which can vary in width */
+    font-family: Consolas, Menlo, Monaco, monospace;
+    font-size: 0.9em;
+}
